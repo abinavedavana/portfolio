@@ -1,89 +1,74 @@
-// import { Link } from "react-router-dom";
-// import { Outlet } from "react-router-dom";
-
-// function Header() {
-//   return (
-//     <div className="text-center">
-//       <nav>
-//         <Link to="/">Home</Link> | {""}
-//         <Link to="/about">About</Link> | {""}
-//         <Link to="/projects">Projects</Link> | {""}
-//         <Link to="/resume">Resume</Link> | {""}
-//         <Link to="/contact">Contact</Link>
-//       </nav>
-
-
-//       <Outlet />
-//     </div>
-//   );
-// }
-
-// export default Header;
 
 
 
-import { Link, Outlet } from "react-router-dom";
+
+import { useState } from "react";
+import {  useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (path, id) => {
+    navigate(path);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false); // close menu on click
+  };
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-    
-      <nav className="bg-gray-800 py-4 shadow-md">
-        <ul className="flex justify-center space-x-8 text-lg font-medium">
-          <li>
-            <Link
-              to="/"
-              className="hover:text-blue-400 transition duration-200 "
-            >
-              Home
-            </Link>
-          </li>
+    <nav className="fixed top-0 w-full bg-gray-800 py-4 z-50">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center ">
+        <div className="text-white font-bold text-2xl ">My Portfolio</div>
 
-          <li>
-            <Link
-              to="/about"
-              className="hover:text-blue-400 transition duration-200"
+   
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white focus:outline-none"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              About
-            </Link>
-          </li>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              />
+            </svg>
+          </button>
+        </div>
 
-          <li>
-            <Link
-              to="/projects"
-              className="hover:text-blue-400 transition duration-200"
-            >
-              Projects
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/resume"
-              className="hover:text-blue-400 transition duration-200"
-            >
-              Resume
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/contact"
-              className="hover:text-blue-400 transition duration-200"
-            >
-              Contact
-            </Link>
-          </li>
+        
+        <ul className="hidden md:flex justify-center gap-10 text-white font-bold">
+          <li onClick={() => handleClick("/", "home")} className="hover:text-blue-500 cursor-pointer">Home</li>
+          <li onClick={() => handleClick("/about", "about")} className="hover:text-blue-500 cursor-pointer">About</li>
+          <li onClick={() => handleClick("/projects", "projects")} className="hover:text-blue-500 cursor-pointer">Projects</li>
+          <li onClick={() => handleClick("/resume", "resume")} className="hover:text-blue-500 cursor-pointer">Resume</li>
+          <li onClick={() => handleClick("/contact", "contact")} className="hover:text-blue-500 cursor-pointer">Contact</li>
         </ul>
-      </nav>
-
-      {/* Page Content */}
-      <div className="p-6">
-        <Outlet />
       </div>
-    </div>
+
+      
+      {isOpen && (
+        <ul className="md:hidden flex flex-col gap-4 mt-4 text-center text-white font-bold bg-gray-700 py-4">
+          <li onClick={() => handleClick("/", "home")} className="hover:text-blue-500 cursor-pointer">Home</li>
+          <li onClick={() => handleClick("/about", "about")} className="hover:text-blue-500 cursor-pointer">About</li>
+          <li onClick={() => handleClick("/projects", "projects")} className="hover:text-blue-500 cursor-pointer">Projects</li>
+          <li onClick={() => handleClick("/resume", "resume")} className="hover:text-blue-500 cursor-pointer">Resume</li>
+          <li onClick={() => handleClick("/contact", "contact")} className="hover:text-blue-500 cursor-pointer">Contact</li>
+        </ul>
+      )}
+    </nav>
   );
 }
 
 export default Header;
+
+
 

@@ -2,31 +2,9 @@
 
 
 
-
-// function Resume() {
-//   return (
-//     <div>
-//       <h2>My Resume</h2>
-//       <p>You can view or download my resume below</p>
-
-//       <div>
-//         <a href="/my_resume.pdf" download="my_resume.pdf">Download Resume</a> <br /><br /><br />
-//         <a href="/my_resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Resume;
-
-
-
-
-
-
 function Resume() {
   return (
-    <div  className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12">
+    <div id="resume" className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12">
 
       <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-4">
         My Resume
@@ -38,7 +16,7 @@ function Resume() {
 
       <div className="flex flex-col items-center space-y-6">
 
-        {/* Download Button */}
+        
         <a
           href="/my_resume.pdf"
           download="my_resume.pdf"
@@ -47,7 +25,7 @@ function Resume() {
           Download Resume
         </a>
 
-        {/* View Button */}
+        
         <a
           href="/my_resume.pdf"
           target="_blank"
