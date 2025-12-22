@@ -22,6 +22,13 @@ function Project() {
       link: "https://github.com/Midhun-Nk/BloodDonation",
     },
     {
+      title: "Moody Dance Studio",
+      description:
+        "React Frontend Project Built a responsive frontend web application using React.js, translating a professional Figma design into a clean, user-friendly interface. Implemented reusable components and mobile-first layouts to deliver an engaging UI, demonstrating strong proficiency in React fundamentals and modern frontend development practices.",
+      tech: ["HTML", "Tailwind Css","JS","React.js"],
+      link: "https://github.com/abinavedavana/frontend-task",
+    },
+    {
       title: "ToDoList",
       description:
         "A simple To-Do List application built using JavaScript to add and delete daily tasks.",
