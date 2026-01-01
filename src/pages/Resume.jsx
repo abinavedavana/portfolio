@@ -18,8 +18,8 @@ function Resume() {
 
         
         <a
-          href="/my_resume.pdf"
-          download="my_resume.pdf"
+          href="/my_resume__.pdf"
+          download="my_resume__.pdf"
           className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg transition-all"
         >
           Download Resume
@@ -27,7 +27,8 @@ function Resume() {
 
         
         <a
-          href="/my_resume.pdf"
+          href="/my_resume__.pdf"
+          
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3 bg-gray-700 hover:bg-gray-800 rounded-lg text-white font-semibold shadow-lg transition-all"
